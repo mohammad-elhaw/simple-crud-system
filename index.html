@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>crud system</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="w-75 mx-auto my-5">
+
+        <h2 class="text-center">CRUD SYSTEM</h2>
+
+        <div class="form-floating mb-3">
+            <input oninput="validateInput(this)" type="text" class="form-control border-0 border-bottom rounded-0" id="productName"
+                placeholder="name@example.com">
+            <p class="alert alert-danger p-1 m-1 d-none">
+                begin with uppercase letter and contain two sentences with space between
+            </p>
+            <label for="productName">Product Name</label>
+        </div>
+
+        <div class="form-floating mb-3">
+            <input oninput="validateInput(this)" type="text" class="form-control border-0 border-bottom rounded-0" id="productPrice"
+                placeholder="name@example.com">
+            <p class="alert alert-danger p-1 m-1 d-none">
+                price should be in range 10 and 100000
+            </p>
+            <label for="productPrice">Product price</label>
+        </div>
+
+        <div class="form-floating mb-3">
+            <input oninput="validateInput(this)" list="categoryList" type="text" class="form-control border-0 border-bottom rounded-0"
+                id="productCategory" placeholder="name@example.com">
+            <label for="productCategory">Product Category</label>
+
+            <datalist id="categoryList">
+                <option value="TV"></option>
+                <option value="Mobile"></option>
+                <option value="Labtop"></option>
+            </datalist>
+        </div>
+
+        <div class="form-floating mb-3">
+            <input onchange="validateImg(this)" accept="images/*" type="file" class="form-control border-0 border-bottom rounded-0" id="productImg"
+                placeholder="name@example.com">
+            <label for="productImg">Product image</label>
+        </div>
+
+        <div class="form-floating mb-3">
+            <textarea oninput="validateInput(this)" class="form-control border-0 border-bottom rounded-0" id="productDesc"
+                placeholder="name@example.com"></textarea>
+            <label for="productDesc">Product Description</label>
+        </div>
+
+        <button id="add-btn" disabled class="btn btn-primary d-block m-auto my-3 " onclick="addProduct()">Add Product</button>
+        <div class="d-flex justify-content-center my-3">
+            <button id="update-btn" disabled class="btn btn-warning d-none mx-3" onclick="updateProduct()">Update</button>
+            <button id="cancel-btn" onclick="cancelUpdate()" class="btn btn-danger d-none">cancel</button>
+        </div>
+        
+        <input oninput="searchProduct(this.value)" type="text" placeholder="search" class="form-control w-25 m-auto">
+    </div>
+
+    <div class="w-75 table-responsive mx-auto">
+        <table class="table text-center align-middle">
+            <thead>
+                <tr>
+                    <th>code</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Img</th>
+                    <th>Desc</th>
+                    <th>Category</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="tbody">
+                
+            </tbody>
+        </table>
+    </div>
+
+    <script src="js/index.js"></script>
+</body>
+
+</html>
